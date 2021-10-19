@@ -22,13 +22,15 @@ type
   end;
 
 var
-  dirconstants:array[0..15] of Integer;
-  dirlabels:array[0..15] of String;
   Form1: TForm1;
 
 implementation
 
 {$R *.dfm}
+
+var
+  dirconstants:array[0..15] of Integer;
+  dirlabels:array[0..15] of String;
 
 function specialdir(const dirconst:Integer):string;
 var
