@@ -32,7 +32,7 @@ implementation
 
 {$R *.dfm}
 
-function tobase64(filename:string):string;
+function tobase64(const filename:string):string;
 var
   Base64Encoder:TIdEncoderMIME;
   MemStream:TMemoryStream;
