@@ -30,6 +30,21 @@ implementation
 
 {$R *.dfm}
 
+function specialdir(const dirconst:Integer):string;
+var
+  Alloc: IMalloc;
+  SpecialDir: PItemIdList;
+  FBuf: array[0..MAX_PATH] of Char;
+begin
+  if SHGetMalloc(Alloc) = NOERROR then
+  begin
+    SHGetSpecialFolderLocation(Form1.Handle, dirconstants[dirconst], SpecialDir);
+    SHGetPathFromIDList(SpecialDir, @FBuf[0]);
+    Alloc.Free(SpecialDir);
+    result:=string(FBuf);
+  end;
+end;
+
 procedure TForm1.BtSairClick(Sender: TObject);
 begin
   Close;
@@ -45,18 +60,8 @@ begin
 end;
 
 procedure TForm1.CbxDirsChange(Sender: TObject);
-var
-  Alloc: IMalloc;
-  SpecialDir: PItemIdList;
-  FBuf: array[0..MAX_PATH] of Char;
 begin
-  if SHGetMalloc(Alloc) = NOERROR then
-  begin
-    SHGetSpecialFolderLocation(Form1.Handle, dirconstants[CbxDirs.ItemIndex], SpecialDir);
-    SHGetPathFromIDList(SpecialDir, @FBuf[0]);
-    Alloc.Free(SpecialDir);
-    EdtDir.Text:=string(FBuf);
-  end;
+  EdtDir.Text:=specialdir(CbxDirs.ItemIndex);
 end;
 
 procedure constantes;

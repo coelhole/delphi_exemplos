@@ -32,6 +32,25 @@ implementation
 
 {$R *.dfm}
 
+function tobase64(filename:string):string;
+var
+  Base64Encoder:TIdEncoderMIME;
+  MemStream:TMemoryStream;
+begin
+  MemStream:=TMemoryStream.Create;
+  try
+    Base64Encoder:=TIdEncoderMIME.Create(nil);
+    try
+      MemStream.LoadFromFile(filename);
+      result:=Base64Encoder.Encode(MemStream);
+    finally
+      Base64Encoder.Free;
+    end;
+  finally
+    MemStream.Free;
+  end;
+end;
+
 procedure TForm1.BtOpenDirClick(Sender: TObject);
 begin
   if OpenFileDlg.Execute then
@@ -49,23 +68,9 @@ begin
 end;
 
 procedure TForm1.BtConverterClick(Sender: TObject);
-var
-  Base64Encoder:TIdEncoderMIME;
-  MemStream:TMemoryStream;
 begin
   MemoConteudoBase64.Clear;
-  MemStream:=TMemoryStream.Create;
-  try
-    Base64Encoder:=TIdEncoderMIME.Create(nil);
-    try
-      MemStream.LoadFromFile(EdtArquivo.Text);
-      MemoConteudoBase64.Text:=Base64Encoder.Encode(MemStream);
-    finally
-      Base64Encoder.Free;
-    end;
-  finally
-    MemStream.Free;
-  end;
+  MemoConteudoBase64.Text:=tobase64(EdtArquivo.Text);
 end;
 
 end.
