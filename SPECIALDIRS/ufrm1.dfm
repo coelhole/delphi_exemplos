@@ -1,0 +1,81 @@
+object Form1: TForm1
+  Left = 191
+  Top = 113
+  Width = 900
+  Height = 200
+  BorderIcons = []
+  Caption = 'Special directories'
+  Color = clBtnFace
+  Constraints.MinHeight = 160
+  Constraints.MinWidth = 448
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  OnCreate = FormCreate
+  DesignSize = (
+    892
+    169)
+  PixelsPerInch = 96
+  TextHeight = 13
+  object LblDir: TLabel
+    Left = 8
+    Top = 8
+    Width = 13
+    Height = 13
+    Caption = 'Dir'
+  end
+  object EdtDir: TLabeledEdit
+    Left = 232
+    Top = 24
+    Width = 652
+    Height = 21
+    Anchors = [akLeft, akTop, akRight]
+    Color = clBtnFace
+    EditLabel.Width = 22
+    EditLabel.Height = 13
+    EditLabel.Caption = 'Path'
+    TabOrder = 0
+  end
+  object CbxDirs: TComboBox
+    Left = 8
+    Top = 24
+    Width = 220
+    Height = 21
+    Style = csDropDownList
+    Color = clBtnFace
+    ItemHeight = 13
+    TabOrder = 1
+    OnChange = CbxDirsChange
+  end
+  object BtSair: TBitBtn
+    Left = 769
+    Top = 125
+    Width = 115
+    Height = 33
+    Anchors = [akRight, akBottom]
+    Caption = 'Sair'
+    TabOrder = 2
+    OnClick = BtSairClick
+    Glyph.Data = {
+      DE010000424DDE01000000000000760000002800000024000000120000000100
+      0400000000006801000000000000000000001000000000000000000000000000
+      80000080000000808000800000008000800080800000C0C0C000808080000000
+      FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF006FF00FF00FF0
+      07700766666666666F6666660000F00FF00FF000800880666666666688F66666
+      00000FF00FF00F0700800866666666668F8F66660000F00FF00FF007800880FF
+      FFFFFFF68F68FFFF000000000000070788000088888888868F66888800006666
+      660770078880666666668F668F6668F600006666660000078880666666668F66
+      8F6668F600006666660888078880666666668F668F6668F60000666666088807
+      888066666FFFFFF68F6668F6000066000000080708806666888888868F6668F6
+      0000660999990807888066668F666F868F6668F6000060999990880788806668
+      F6F6F8668F6668F6000060909908880788806668F8FF8F668F6668F600006000
+      900888078880666888F88F668F6668F600006660060888807880666668868F66
+      68F668F600006666660888880780666666668F66668F68F60000666666088888
+      8070666666668FFFFFF8F8F60000666666000000000066666666888888888866
+      0000}
+    NumGlyphs = 2
+  end
+end
