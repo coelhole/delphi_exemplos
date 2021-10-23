@@ -4,8 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, ExtCtrls, Buttons,
-  IdBaseComponent, IdCoder, IdCoder3to4, IdCoderMIME;
+  Dialogs, StdCtrls, ExtCtrls, Buttons, ufiletobase64string;
 
 type
   TForm1 = class(TForm)
@@ -31,25 +30,6 @@ var
 implementation
 
 {$R *.dfm}
-
-function tobase64(const filename:string):string;
-var
-  Base64Encoder:TIdEncoderMIME;
-  MemStream:TMemoryStream;
-begin
-  MemStream:=TMemoryStream.Create;
-  try
-    Base64Encoder:=TIdEncoderMIME.Create(nil);
-    try
-      MemStream.LoadFromFile(filename);
-      result:=Base64Encoder.Encode(MemStream);
-    finally
-      Base64Encoder.Free;
-    end;
-  finally
-    MemStream.Free;
-  end;
-end;
 
 procedure TForm1.BtOpenDirClick(Sender: TObject);
 begin

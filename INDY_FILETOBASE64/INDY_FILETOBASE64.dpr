@@ -2,7 +2,8 @@ program INDY_FILETOBASE64;
 
 uses
   Forms,
-  ufrm1 in 'ufrm1.pas' {Form1};
+  ufrm1 in 'ufrm1.pas' {Form1},
+  ufiletobase64string in 'ufiletobase64string.pas';
 
 {$R *.res}
 

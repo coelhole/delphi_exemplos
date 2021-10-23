@@ -2,7 +2,8 @@ program INDY_BASE64TOFILE;
 
 uses
   Forms,
-  ufrm1 in 'ufrm1.pas' {Form1};
+  ufrm1 in 'ufrm1.pas' {Form1},
+  ubase64tomemstream in 'ubase64tomemstream.pas';
 
 {$R *.res}
 

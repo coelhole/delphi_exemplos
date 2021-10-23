@@ -4,8 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, Buttons, IdBaseComponent, IdCoder, IdCoder3to4,
-  IdCoderMIME;
+  Dialogs, StdCtrls, Buttons, ubase64tomemstream;
 
 type
   TForm1 = class(TForm)
@@ -28,24 +27,6 @@ var
 implementation
 
 {$R *.dfm}
-
-function base64toMemoryStream(const base64string:string; out error:string):TMemoryStream;
-var
-  Decoder:TIdDecoderMIME;
-begin
-  try
-    Decoder := TIdDecoderMIME.Create(nil);
-    try
-      result:=TMemoryStream.Create;
-      Decoder.DecodeStream(base64string,result);
-    finally
-      Decoder.Free;
-    end;
-  except
-    on E:Exception do
-      error:=E.ClassName+#13#10+E.Message;
-  end;
-end;
 
 procedure TForm1.BtSairClick(Sender: TObject);
 begin
