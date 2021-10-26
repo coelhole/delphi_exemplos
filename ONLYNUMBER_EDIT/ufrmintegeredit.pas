@@ -27,11 +27,9 @@ implementation
 
 procedure TForm2.Edit1KeyPress(Sender: TObject; var Key: Char);
 begin
-  if key in ['+','-'] then begin
-    if Edit1.SelStart=0 then begin
-      Edit1.Text:=key+Edit1.Text;
-      Edit1.SelStart:=1;
-    end;
+  if (key in ['+','-']) and (Edit1.SelStart=0) then begin
+    Edit1.Text:=key+Edit1.Text;
+    Edit1.SelStart:=1;
   end;
   if not fTeclaAceita then key:=#0;
 end;
