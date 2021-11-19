@@ -34,9 +34,10 @@ begin
   httpRequest:=THttpSend.create;
   try
     result:=httpRequest.httpMethod('GET',url) and (httpRequest.resultCode=200);
-    memstream:=TMemoryStream.create;
-    if result then
+    if result then begin
+      memstream:=TMemoryStream.create;
       result:=memstream.copyFrom(httpRequest.document,httpRequest.document.size)=httpRequest.document.size;
+    end;
   finally
     httpRequest.free;
   end;
