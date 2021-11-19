@@ -36,7 +36,7 @@ begin
     result:=httpRequest.httpMethod('GET',url) and (httpRequest.resultCode=200);
     memstream:=TMemoryStream.create;
     if result then
-      memstream.copyFrom(httpRequest.document,httpRequest.document.size);
+      result:=memstream.copyFrom(httpRequest.document,httpRequest.document.size)=httpRequest.document.size;
   finally
     httpRequest.free;
   end;
